@@ -7,10 +7,10 @@ Clone or download this repository, change the drive location in run.bat to the f
 Run run.bat
 
 ## Dependencies 
-### youtube-dl
+##### youtube-dl
 Needed to download the videos.
-### BeatifulSoup
+##### BeatifulSoup
 Used to scrape the website
-### pyfiglet 
+##### pyfiglet 
 Optional, only used to add some graphics.
 Remove all Figlet functions from the code to be able to use it without.
