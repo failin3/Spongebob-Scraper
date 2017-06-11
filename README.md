@@ -9,4 +9,4 @@ Run run.bat
 ## Dependencies 
 #### python 2.7
 #### requirements.txt
-The rest of the requirements are found in requirements.txt, open a command prompt in the folder and type in `python -m pip install -r requirements.txt`
+The rest of the requirements are found in requirements.txt, open a command prompt in the folder and type in `'python -m pip install -r requirements.txt`'
