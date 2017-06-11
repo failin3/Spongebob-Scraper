@@ -8,10 +8,5 @@ Run run.bat
 
 ## Dependencies 
 #### python 2.7
-#### youtube-dl
-Needed to download the videos.
-#### BeatifulSoup
-Used to scrape the website
-#### pyfiglet 
-Optional, only used to add some graphics.
-Remove all Figlet functions from the code to be able to use it without.
+#### requirements.txt
+The rest of the requirements are found in requirements.txt, open a command prompt in the folder and type in `python -m pip install -r requirements.txt`
