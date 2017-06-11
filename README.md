@@ -7,6 +7,7 @@ Clone or download this repository, change the drive location in run.bat to the f
 Run run.bat
 
 ## Dependencies 
+#### python 2.7
 #### youtube-dl
 Needed to download the videos.
 #### BeatifulSoup
