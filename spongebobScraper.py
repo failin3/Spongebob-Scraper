@@ -22,6 +22,7 @@ import os.path
 
 
 #global constants
+maxSeason = 4;
 seasonlocation = 9
 episodelocation = 24
 
@@ -42,8 +43,10 @@ def titleCleaner( string ):
 	string = string.replace(" - Nickelodeon.nl", "")
 	return string
 	
-def videoDownloader( title, url, season):
-	maxSeason = 4;
+def videoDownloader( title, url, season, maxSeason):
+
+	
+	
 	if os.path.isfile("verification.txt") is False:
 		verificationFile = open("verification.txt", "a")
 		verificationFile.write("Automatically generated file, do not modify")
@@ -88,7 +91,7 @@ try:
 	season = findSeason(seasonlocation)
 	title = titleCleaner(soup.title.string)
 	print Figlet().renderText("Spongebob Scraper 2")
-	videoDownloader(title, originalURL, season)
+	videoDownloader(title, originalURL, season, maxSeason)
 except AttributeError:
 	print("This function might not work correctly, go back and repair this later")
 	print("Altough it should be fine")
@@ -102,7 +105,7 @@ for i in range (1, 12):
 		string = soup.h6.string
 		season = findSeason(seasonlocation)
 		title = titleCleaner(soup.title.string)
-		videoDownloader(title, url, season)
+		videoDownloader(title, url, season, maxSeason)
 		
 print Figlet().renderText("Done")
 autoPrint(18)
