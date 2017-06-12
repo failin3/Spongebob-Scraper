@@ -8,6 +8,10 @@ Clone or download this repository, change the drive location in run.bat to the f
 If your python 2 location is not C:\Python27\python.exe then change those directories in "install dependencies.bat" and "run.bat".
 Run run.bat
 
+## Autostart on startup
+Add a start.bat shortcut to `%programdata%\Microsoft\Windows\Start Menu\Programs\Startup` in windows 10 to automatically start the script on each boot. 
+
+
 ## Dependencies 
 #### python 2.7
 #### requirements.txt
