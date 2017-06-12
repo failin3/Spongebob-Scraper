@@ -14,5 +14,6 @@ Add a start.bat shortcut to `%programdata%\Microsoft\Windows\Start Menu\Programs
 
 ## Dependencies 
 #### python 2.7
+Install dependencies.bat and run.bat assume that your python27 directory is C:\Python27, if this is not the case, modify the path in both files for it to work properly.
 #### requirements.txt
 The rest of the requirements are found in requirements.txt and can be installed by running "Install dependencies.bat", or by opening a command prompt in the folder and typing in ```python -m pip install -r requirements.txt```
