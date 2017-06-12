@@ -1,3 +1,6 @@
+#!python2
+
+
 #--------------------------------------------------------------------------------------------------------
 #Spongebob Scraper 1.0
 #@echo off
@@ -8,11 +11,14 @@
 #----------------------------------------------------------------------------------------------------------
 #Spongebob Scraper 2.0 
 #Now 100% more automatic
+
+
 from __future__ import unicode_literals
 import youtube_dl
 from bs4 import BeautifulSoup
 import urllib2
 from pyfiglet import Figlet
+import os.path
 
 
 #global constants
@@ -38,6 +44,10 @@ def titleCleaner( string ):
 	
 def videoDownloader( title, url, season):
 	maxSeason = 4;
+	if os.path.isfile("verification.txt") is False:
+		verificationFile = open("verification.txt", "a")
+		verificationFile.write("Automatically generated file, do not modify")
+		verificationFile.write("\n")
 	verificationFile = open("verification.txt", "r")
 	if title not in verificationFile.read() and season < maxSeason+1:
 		print Figlet().renderText("Spongebob Scraper 2")

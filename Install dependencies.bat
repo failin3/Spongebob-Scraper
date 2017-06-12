@@ -1,6 +1,6 @@
 @echo off
 if exist "requirements.txt" (
-  python -m pip install -r requirements.txt
+  C:\Python27\python.exe -m pip install -r requirements.txt
   pause cls
 ) else (
   echo Could not find requirements.txt
