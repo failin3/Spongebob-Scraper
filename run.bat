@@ -1,3 +1,4 @@
 @echo off
-cd "D:\Spongebob Videos\Python Script"
-C:\Python27\python.exe spongebobScraper.py
+set /p version=Python 2 or 3:
+cd "D:\Spongebob Videos\Python Script
+python spongebobScraper%version%.py
