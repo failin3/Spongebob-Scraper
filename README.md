@@ -5,15 +5,15 @@ The current settings will download all episodes from season 1 through 4, these c
 
 ## Usage 
 Clone or download this repository, change the drive location in run.bat to the folder in which the script is stored.
-If your python 2 location is not C:\Python27\python.exe then change those directories in "install dependencies.bat" and "run.bat".
-Run run.bat
+Run install dependencies to install all dependencies, then start run.bat, fill in your python version to start the script.
 
 ## Autostart on startup
-Add a start.bat shortcut to `%programdata%\Microsoft\Windows\Start Menu\Programs\Startup` in windows 10 to automatically start the script on each boot. 
+Add an autostart2.bat or autostart3.bat shortcut to `%programdata%\Microsoft\Windows\Start Menu\Programs\Startup` in windows 10 to automatically start the script on each boot. 
+Select autostart2 for python2 and autostart 3 for python 3. 
 
 
 ## Dependencies 
-#### python 2.7
-Install dependencies.bat and run.bat assume that your python27 directory is C:\Python27, if this is not the case, modify the path in both files for it to work properly.
+#### python
+Install dependencies.bat and run.bat. 
 #### requirements.txt
 The rest of the requirements are found in requirements.txt and can be installed by running "Install dependencies.bat", or by opening a command prompt in the folder and typing in ```python -m pip install -r requirements.txt```
