@@ -2,18 +2,14 @@
 
 
 
-if exist version.txt (
-set /p version= <version.txt
+if exist version.cfg (
+set /p v= <version.cfg
 ) else (
-set /p version=Python 2 or 3:
+set /p v=Python 2 or 3:
+>> version.cfg echo %v%
 )
-echo %version% > version.txt
 
-if not exist autorun.bat (
-(echo @echo off & echo python spongebobScraper%version%.py) > autorun.bat)
+if not exist autorun.cfg (
+(echo @echo off & echo cd %cd% & echo python spongebobScraper%v%.py) > autorun.bat)
 
-cd "D:\Spongebob Videos\Python Script
-
-echo %version%
-
-python spongebobScraper%version%.py
+python spongebobScraper%v%.py

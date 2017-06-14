@@ -4,12 +4,12 @@ The script is written for nickelodeon.nl and might not work for other nickelodeo
 The current settings will download all episodes from season 1 through 4, these can be changed by adjusting the variable maxSeason in the global constants. 
 
 ## Usage 
-Clone or download this repository, change the drive location in run.bat to the folder in which the script is stored.
-Run install dependencies to install all dependencies, then start run.bat, fill in your python version to start the script.
+Clone or download this repository. Run install dependencies and fill in your python version to install all dependencies, then start run.bat to start the script.
 
-## Autostart on startup
-Add an autostart2.bat or autostart3.bat shortcut to `%programdata%\Microsoft\Windows\Start Menu\Programs\Startup` in windows 10 to automatically start the script on each boot. 
-Select autostart2 for python2 and autostart 3 for python 3. 
+
+## Autorun on startup
+Add an autorun.bat shortcut to `%programdata%\Microsoft\Windows\Start Menu\Programs\Startup` in windows 10 to automatically start the script on each boot. 
+
 
 
 ## Dependencies 
