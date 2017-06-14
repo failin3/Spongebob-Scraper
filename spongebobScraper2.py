@@ -17,7 +17,6 @@ from __future__ import unicode_literals
 import youtube_dl
 from bs4 import BeautifulSoup
 import urllib2
-from pyfiglet import Figlet
 import os.path
 
 
@@ -53,8 +52,8 @@ def videoDownloader( title, url, season, maxSeason):
 		verificationFile.write("\n")
 	verificationFile = open("verification.txt", "r")
 	if title not in verificationFile.read() and season < maxSeason+1:
-		print Figlet().renderText("Spongebob Scraper 2")
-                episode = findSeason(episodelocation)
+		##print Figlet().renderText("Spongebob Scraper 2")
+        episode = findSeason(episodelocation)
 		print "Downloading", title, "From season", int(season), "episode", int(episode)
 		print "from ", url
 		ydl = youtube_dl.YoutubeDL({'outtmpl': 'D:\\Spongebob Videos\\Python Dump\\%(title)s.%(ext)s'})
@@ -70,7 +69,7 @@ def videoDownloader( title, url, season, maxSeason):
 	verificationFile.close()
 	return
 	
-def autoPrint( amount ):
+#def autoPrint( amount ):
 	for i in range (1, amount):
 		print
 	return
@@ -78,8 +77,8 @@ def autoPrint( amount ):
 
 
 
-print Figlet().renderText("Spongebob Scraper 2")
-autoPrint(13)
+##print Figlet().renderText("Spongebob Scraper 2")
+#autoPrint(13)
 
 	
 originalURL = 'http://www.nickelodeon.nl/shows/474-spongebob'
@@ -90,7 +89,7 @@ try:
 	string =  soup.h6.string
 	season = findSeason(seasonlocation)
 	title = titleCleaner(soup.title.string)
-	print Figlet().renderText("Spongebob Scraper 2")
+	#print Figlet().renderText("Spongebob Scraper 2")
 	videoDownloader(title, originalURL, season, maxSeason)
 except AttributeError:
 	print("This function might not work correctly, go back and repair this later")
@@ -107,5 +106,5 @@ for i in range (1, 12):
 		title = titleCleaner(soup.title.string)
 		videoDownloader(title, url, season, maxSeason)
 		
-print Figlet().renderText("Done")
-autoPrint(18)
+#print Figlet().renderText("Done")
+#autoPrint(18)
