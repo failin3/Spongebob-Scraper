@@ -52,8 +52,7 @@ def videoDownloader( title, url, season, maxSeason):
 		verificationFile.write("\n")
 	verificationFile = open("verification.txt", "r")
 	if title not in verificationFile.read() and season < maxSeason+1:
-		##print Figlet().renderText("Spongebob Scraper 2")
-        episode = findSeason(episodelocation)
+		episode = findSeason(episodelocation)
 		print "Downloading", title, "From season", int(season), "episode", int(episode)
 		print "from ", url
 		ydl = youtube_dl.YoutubeDL({'outtmpl': 'D:\\Spongebob Videos\\Python Dump\\%(title)s.%(ext)s'})
@@ -92,9 +91,7 @@ try:
 	#print Figlet().renderText("Spongebob Scraper 2")
 	videoDownloader(title, originalURL, season, maxSeason)
 except AttributeError:
-	print("This function might not work correctly, go back and repair this later")
-	print("Altough it should be fine")
-	print("")
+	print("This is not an episode")
 
 li =  soup.findAll('li', class_ = 'fullepisode playlist-item')
 for i in range (1, 12):
