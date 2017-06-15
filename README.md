@@ -13,14 +13,8 @@ Add a run.bat shortcut to `%programdata%\Microsoft\Windows\Start Menu\Programs\S
 
 
 ## Dependencies 
-<<<<<<< HEAD
-#### Python
-Install dependencies.bat and run.bat. 
-#### Requirements.txt
-=======
 #### python
 #### requirements.txt
->>>>>>> 4269ff1e9fb013820521512e13a5ef7cad165224
 The rest of the requirements are found in requirements.txt and can be installed by running "Install dependencies.bat", or by opening a command prompt in the folder and typing in ```python -m pip install -r requirements.txt```
 #### Reinstalling
 If you change your python version, or some files have gone missing, you can rerun "Install dependencies.bat" to change or recover the files. 
