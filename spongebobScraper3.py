@@ -65,7 +65,7 @@ def videoDownloader( title, url, season, maxSeason):
 		verificationFile.write(title)
 		verificationFile.write("\n")
 	elif season > maxSeason: 
-		print("Episode is in season 5+")
+		print("Episode is in season 5+", int(season))
 	else: 
 		print("Episode has been downloaded already")
 	verificationFile.close()
