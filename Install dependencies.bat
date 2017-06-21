@@ -29,7 +29,8 @@ goto end
 
 :reinstall 
 set /p r=Do you want to reinstall the dependencies? (y or n):
-if not %r%==y (goto end)
+if %r%==n (goto end)
+if not %r%==y (goto reinstall)
 if exist run.bat (del run.bat)
 if exist "requirements.txt" (del "requirements.txt")
 goto start
