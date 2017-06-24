@@ -4,12 +4,12 @@
 if exist run.bat (goto reinstall)
 if exist requirements.txt (goto reinstall)
 
-set /p v=Python 2 or 3:
+REM set /p v=Python 2 or 3:
 
-if %v%==2 (goto install)
-if %v%==3 (goto install)
-echo Please fill in your python version: 2 or 3.
-goto start
+REM if %v%==2 (goto install)
+REMif %v%==3 (goto install)
+REM echo Please fill in your python version: 2 or 3.
+goto install
 
 :install
 if not exist run.bat ((echo @echo off & echo python spongebobScraper.py) > run.bat)
