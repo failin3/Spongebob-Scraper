@@ -12,9 +12,9 @@ echo Please fill in your python version: 2 or 3.
 goto start
 
 :install
-if not exist run.bat ((echo @echo off & echo python spongebobScraper%v%.py) > run.bat)
+if not exist run.bat ((echo @echo off & echo python spongebobScraper.py) > run.bat)
 
-if not exist requirements.txt ((echo youtube_dl==2017.2.24.1 & echo beautifulsoup4==4.6.0 & echo html5lib==0.999999999) > requirements.txt)
+if not exist requirements.txt ((echo youtube_dl==2017.2.24.1 & echo beautifulsoup4==4.6.0 & echo html5lib==0.999999999& echo future==0.16.0) > requirements.txt)
 
 if exist "requirements.txt" (
   python -m pip install -r requirements.txt

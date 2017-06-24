@@ -12,7 +12,7 @@
 #Spongebob Scraper 2.0 
 #Now 100% more automatic
 
-
+from __future__ import print_function
 from __future__ import unicode_literals
 import youtube_dl
 from bs4 import BeautifulSoup
@@ -53,8 +53,8 @@ def videoDownloader( title, url, season, maxSeason):
 	verificationFile = open("verification.txt", "r")
 	if title not in verificationFile.read() and season < maxSeason+1:
 		episode = findSeason(episodelocation)
-		print "Downloading", title, "From season", int(season), "episode", int(episode)
-		print "from ", url
+		print("Downloading", title, "From season", int(season), "episode", int(episode))
+		print("from ", url)
 		ydl = youtube_dl.YoutubeDL({'outtmpl': 'D:\\Spongebob Videos\\Python Dump\\%(title)s.%(ext)s'})
 		with ydl:
 			ydl.download([url])
@@ -62,15 +62,15 @@ def videoDownloader( title, url, season, maxSeason):
 		verificationFile.write(title)
 		verificationFile.write("\n")
 	elif season > maxSeason: 
-		print "Episode is in season ", int(season)
+		print("Episode is in season ", int(season))
 	else: 
-		print "Episode has been downloaded already"
+		print("Episode has been downloaded already")
 	verificationFile.close()
 	return
 	
 #def autoPrint( amount ):
 	for i in range (1, amount):
-		print
+		print("")
 	return
 	
 
