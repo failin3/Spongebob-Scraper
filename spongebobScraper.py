@@ -81,7 +81,20 @@ def videoDownloader( title, url, season, maxSeason):
 
 	
 originalURL = 'http://www.nickelodeon.nl/shows/474-spongebob'
-soup = BeautifulSoup(urllib2.urlopen(originalURL).read(), "html5lib")
+succes = 0
+printed = 0
+while(succes==0):
+	try: 
+		soup = BeautifulSoup(urllib2.urlopen(originalURL).read(), "html5lib")
+		succes = 1
+	except urllib2.URLError as err: 
+		succes = 0
+	if(succes == 0 and printed == 0):
+		print("No internet connection, please connect to the internet to run")
+		printed = 1
+
+	
+
 
 #If h6 exists run this code, the first page might not be a full episode which crashes the program
 try:
