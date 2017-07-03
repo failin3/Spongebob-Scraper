@@ -16,7 +16,7 @@ from __future__ import print_function
 from __future__ import unicode_literals
 import youtube_dl
 from bs4 import BeautifulSoup
-import urllib2
+from urllib.request import urlopen
 import os.path
 
 
@@ -85,7 +85,7 @@ succes = 0
 printed = 0
 while(succes==0):
 	try: 
-		soup = BeautifulSoup(urllib2.urlopen(originalURL).read(), "html5lib")
+		soup = BeautifulSoup(urlopen(originalURL).read(), "html5lib")
 		succes = 1
 	except urllib2.URLError as err: 
 		succes = 0
@@ -110,7 +110,7 @@ li =  soup.findAll('li', class_ = 'fullepisode playlist-item')
 for i in range (1, 12):
 	for a in li[i].find_all('a', href=True):
 		url = a['href']
-		soup = BeautifulSoup(urllib2.urlopen(url), "html5lib")
+		soup = BeautifulSoup(urlopen(url), "html5lib")
 		string = soup.h6.string
 		season = findSeason(seasonlocation)
 		title = titleCleaner(soup.title.string)
