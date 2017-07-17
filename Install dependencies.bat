@@ -4,11 +4,6 @@
 if exist run.bat (goto reinstall)
 if exist requirements.txt (goto reinstall)
 
-REM set /p v=Python 2 or 3:
-
-REM if %v%==2 (goto install)
-REM if %v%==3 (goto install)
-REM echo Please fill in your python version: 2 or 3.
 goto install
 
 :install
