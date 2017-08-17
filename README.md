@@ -18,3 +18,5 @@ Add a run.bat shortcut to `%programdata%\Microsoft\Windows\Start Menu\Programs\S
 The rest of the requirements are found in requirements.txt and can be installed by running "Install dependencies.bat", or by opening a command prompt in the folder and typing in ```python -m pip install -r requirements.txt```
 #### Reinstalling
 If you change your python version, or some files have gone missing, you can rerun "Install dependencies.bat" to change or recover the files. 
+#### RTMPDump
+Download RTMPDump from [here](https://rtmpdump.mplayerhq.hu/), and insert it into your path i.e. C:\Windows\System32
