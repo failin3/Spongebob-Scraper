@@ -1,3 +1,6 @@
+#!python2
+
+
 #--------------------------------------------------------------------------------------------------------
 #Spongebob Scraper 1.0
 #@echo off
@@ -8,14 +11,17 @@
 #----------------------------------------------------------------------------------------------------------
 #Spongebob Scraper 2.0 
 #Now 100% more automatic
+
+from __future__ import print_function
 from __future__ import unicode_literals
 import youtube_dl
 from bs4 import BeautifulSoup
-import urllib2
-from pyfiglet import Figlet
+from urllib.request import urlopen
+import os.path
 
 
 #global constants
+maxSeason = 4;
 seasonlocation = 9
 episodelocation = 24
 
@@ -36,14 +42,19 @@ def titleCleaner( string ):
 	string = string.replace(" - Nickelodeon.nl", "")
 	return string
 	
-def videoDownloader( title, url, season):
-	maxSeason = 4;
+def videoDownloader( title, url, season, maxSeason):
+
+	
+	
+	if os.path.isfile("verification.txt") is False:
+		verificationFile = open("verification.txt", "a")
+		verificationFile.write("Automatically generated file, do not modify")
+		verificationFile.write("\n")
 	verificationFile = open("verification.txt", "r")
 	if title not in verificationFile.read() and season < maxSeason+1:
-		print Figlet().renderText("Spongebob Scraper 2")
-                episode = findSeason(episodelocation)
-		print "Downloading", title, "From season", int(season), "episode", int(episode)
-		print "from ", url
+		episode = findSeason(episodelocation)
+		print("Downloading", title, "From season", int(season), "episode", int(episode))
+		print("from ", url)
 		ydl = youtube_dl.YoutubeDL({'outtmpl': 'D:\\Spongebob Videos\\Python Dump\\%(title)s.%(ext)s'})
 		with ydl:
 			ydl.download([url])
@@ -51,48 +62,62 @@ def videoDownloader( title, url, season):
 		verificationFile.write(title)
 		verificationFile.write("\n")
 	elif season > maxSeason: 
-		print "Episode is in season 5+"
+		print("Episode is in season ", int(season))
 	else: 
-		print "Episode has been downloaded already"
+		print("Episode has been downloaded already")
 	verificationFile.close()
 	return
 	
-def autoPrint( amount ):
+#def autoPrint( amount ):
 	for i in range (1, amount):
-		print
+		print("")
 	return
 	
 
 
 
-print Figlet().renderText("Spongebob Scraper 2")
-autoPrint(13)
+##print Figlet().renderText("Spongebob Scraper 2")
+#autoPrint(13)
 
 	
 originalURL = 'http://www.nickelodeon.nl/shows/474-spongebob'
-soup = BeautifulSoup(urllib2.urlopen(originalURL).read(), "html5lib")
+succes = 0
+printed = 0
+while(succes==0):
+	try: 
+		soup = BeautifulSoup(urlopen(originalURL).read(), "html5lib")
+		succes = 1
+	except urllib2.URLError as err: 
+		succes = 0
+	if(succes == 0 and printed == 0):
+		print("No internet connection, please connect to the internet to run")
+		printed = 1
+
+	
+
 
 #If h6 exists run this code, the first page might not be a full episode which crashes the program
 try:
 	string =  soup.h6.string
 	season = findSeason(seasonlocation)
 	title = titleCleaner(soup.title.string)
-	print Figlet().renderText("Spongebob Scraper 2")
-	videoDownloader(title, originalURL, season)
+	#print Figlet().renderText("Spongebob Scraper 2")
+	videoDownloader(title, originalURL, season, maxSeason)
 except AttributeError:
-	print("This function might not work correctly, go back and repair this later")
-	print("Altough it should be fine")
-	print("")
+	print("This is not an episode")
 
 li =  soup.findAll('li', class_ = 'fullepisode playlist-item')
 for i in range (1, 12):
-	for a in li[i].find_all('a', href=True):
-		url = a['href']
-		soup = BeautifulSoup(urllib2.urlopen(url), "html5lib")
-		string = soup.h6.string
-		season = findSeason(seasonlocation)
-		title = titleCleaner(soup.title.string)
-		videoDownloader(title, url, season)
+	try:
+		for a in li[i].find_all('a', href=True):
+			url = a['href']
+			soup = BeautifulSoup(urlopen(url), "html5lib")
+			string = soup.h6.string
+			season = findSeason(seasonlocation)
+			title = titleCleaner(soup.title.string)
+			videoDownloader(title, url, season, maxSeason)
+	except IndexError:
+		print("This is not an episode")
 		
-print Figlet().renderText("Done")
-autoPrint(18)
+#print Figlet().renderText("Done")
+#autoPrint(18)
